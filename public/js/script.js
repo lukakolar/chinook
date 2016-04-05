@@ -31,5 +31,14 @@ $(document).ready(function() {
     });
   });
   
+  /* requests and sets playlists's details on click */
+  $('#playlists div span').click(function() {
+    var details = $(this);
+    $.get('/playlist/' + details.parent().attr('playlist'), function(data) {
+      details.html(' (' + data.artists + ') artist' + (data.artists > 1 ? 's' : '') + " | " + data.tracks + ' track' + (data.tracks != 1? 's': '') + ' | ' +
+      '$' + Math.round(data.price));
+    });
+  });
+  
   
 });
