@@ -191,4 +191,14 @@ app.get('/pages', function(request, response) {
   });
 });
 
+// preusmeritev iz osnovne strani
+
+app.get('/', function(request, response) {
+  response.redirect('/artists/1');
+});
+
+// Zagon streznika
+app.listen(process.env.PORT, function() {
+  console.log("Streznik je zagnan");
+});
 
